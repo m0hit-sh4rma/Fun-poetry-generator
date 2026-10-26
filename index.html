@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetry Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+        <h1>Poetry Generator</h1>
+
+        <div id="box">Choose your poetry genre.......</div>
+
+        <br><br>
+
+        <div id="buttons">
+            <button onclick="playVideo('videos/info.mp4')">info</button>
+            &nbsp;
+            <button onclick="playVideo('videos/sad.mp4')">sad</button>
+            &nbsp;
+            <button onclick="playVideo('videos/angry.mp4')">Angry</button>
+            &nbsp;
+            <button onclick="playVideo('videos/chill.mp4')">Chill</button>
+            &nbsp;
+            <button onclick="playVideo('videos/Masti.mp4')">Masti</button>
+            &nbsp;
+            <button onclick="playVideo('videos/Maje.mp4')">Maje</button>
+            &nbsp;
+            <button onclick="document.getElementById('box').innerHTML='Choose your poetry genre.......'">Reset</button>
+        </div>
+    </center> 
+
+    <script>
+        function playVideo(videoFileName) {
+            const box = document.getElementById('box');
+            
+            box.innerHTML = `<video src="${videoFileName}" autoplay controls></video>`;
+            
+            const videoElement = box.querySelector('video');
+            videoElement.play().catch(error => {
+                console.log("Autoplay was blocked by browser policy, user interaction required:", error);
+            });
+        }
+    </script>
+</body>
+</html>
